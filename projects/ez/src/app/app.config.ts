@@ -1,14 +1,9 @@
-import {
-  ApplicationConfig,
-  provideExperimentalZonelessChangeDetection,
-} from '@angular/core';
+import { mergeApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { appConfig as coreAppConfig } from 'core';
 
 import { routes } from './app.routes';
 
-export const appConfig: ApplicationConfig = {
-  providers: [
-    provideExperimentalZonelessChangeDetection(),
-    provideRouter(routes),
-  ],
-};
+export const appConfig = mergeApplicationConfig(coreAppConfig, {
+  providers: [provideRouter(routes)],
+});

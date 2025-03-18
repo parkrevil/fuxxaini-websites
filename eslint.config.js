@@ -48,7 +48,9 @@ module.exports = tseslint.config(
           'args': 'after-used',
           'argsIgnorePattern': '^_',
         },
-      ]
+      ],
+      '@typescript-eslint/no-explicit-any': 'off',
+      'import/no-unresolved': 'off',
     },
   },
   {

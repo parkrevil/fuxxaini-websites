@@ -6,6 +6,7 @@
     "start": "run-p start:ez start:backoffice",
     "start:ez": "ng serve ez",
     "start:backoffice": "ng serve backoffice",
+    "build:core": "ng build core --watch",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "lint": "eslint --fix",
@@ -21,13 +22,18 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@primeng/themes": "^19.0.9",
+    "primeng": "^19.0.9",
     "rxjs": "~7.8.0",
+    "tailwindcss-primeui": "^0.5.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.2.2",
     "@angular/cli": "^19.2.2",
     "@angular/compiler-cli": "^19.2.0",
+    "@tailwindcss/postcss": "^4.0.14",
     "angular-eslint": "19.2.1",
     "eslint": "^9.22.0",
     "eslint-config-prettier": "^10.1.1",
@@ -36,14 +42,25 @@
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.0",
+    "ng-packagr": "^19.2.0",
     "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.3",
     "prettier": "^3.5.3",
     "prettier-eslint": "^16.3.0",
     "stylelint": "^16.15.0",
     "stylelint-config-concentric-order": "^5.2.1",
     "stylelint-config-recommended": "^15.0.0",
     "stylelint-config-standard-scss": "^14.0.0",
+    "tailwindcss": "^4.0.14",
     "typescript": "~5.7.2",
     "typescript-eslint": "8.26.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "lmdb",
+      "msgpackr-extract"
+    ]
   }
 }

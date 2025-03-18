@@ -3,7 +3,9 @@
   "version": 1,
   "cli": {
     "packageManager": "pnpm",
-    "schematicCollections": ["angular-eslint"]
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -55,7 +57,10 @@
                 "input": "projects/ez/public"
               }
             ],
-            "styles": ["projects/ez/src/styles.scss"],
+            "styles": [
+              "projects/core/assets/styles/common.css",
+              "projects/ez/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -160,7 +165,10 @@
                 "input": "projects/backoffice/public"
               }
             ],
-            "styles": ["projects/backoffice/src/styles.scss"],
+            "styles": [
+              "projects/core/assets/styles/common.css",
+              "projects/backoffice/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -213,6 +221,66 @@
               "projects/backoffice/**/*.html"
             ],
             "eslintConfig": "projects/backoffice/eslint.config.js"
+          }
+        }
+      }
+    },
+    "core": {
+      "projectType": "library",
+      "root": "projects/core",
+      "sourceRoot": "projects/core/src",
+      "prefix": "rv",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/core/**/*.ts",
+              "projects/core/**/*.html"
+            ],
+            "eslintConfig": "projects/core/eslint.config.js"
           }
         }
       }
